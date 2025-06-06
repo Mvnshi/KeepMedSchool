@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%; /* White */
+    --foreground: 224 71.4% 4.1%; /* Zinc 950 - for main text */
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+    --primary: 217 91% 60%; /* Blue primary color */
+    --primary-foreground: 0 0% 98%; /* Almost white, for text on primary */
+    --secondary: 220 13% 91%; /* Zinc 200 - for subtle backgrounds/borders */
+    --secondary-foreground: 220 10% 40%; /* Zinc 600 - for secondary text */
+    --muted: 220 13% 91%; /* Zinc 200 */
+    --muted-foreground: 220 10% 40%; /* Zinc 600 */
+    --accent: 220 13% 91%; /* Zinc 200 */
+    --accent-foreground: 220 10% 40%; /* Zinc 600 */
+    --destructive: 0 72.2% 50.6%; /* A clear error red */
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 85%; /* Zinc 300 - for most borders */
+    --input: 220 13% 85%; /* Zinc 300 - for input borders */
+    --ring: 217 91% 65%; /* Ring color matching primary, slightly lighter for visibility */
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* Dark mode (example, can be further refined) */
+    --background: 224 71.4% 4.1%; /* Zinc 950 */
+    --foreground: 210 20% 98%; /* Zinc 50 */
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 217 91% 65%; /* Blue slightly brighter for dark mode */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 220 14.3% 11.2%; /* Zinc 900 */
+    --secondary-foreground: 210 20% 98%; /* Zinc 50 */
+    --muted: 220 14.3% 11.2%;
+    --muted-foreground: 220 8.9% 46.1%; /* Zinc 600 */
+    --accent: 220 14.3% 11.2%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 14.3% 11.2%; /* Zinc 900 */
+    --input: 220 14.3% 11.2%;
+    --ring: 217 91% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold tracking-tight; /* Changed to font-bold */
+  }
+  h1 {
+    @apply text-4xl md:text-5xl;
+  }
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28;
+  }
+  .container-narrow {
+    @apply max-w-4xl mx-auto;
+  }
+}
+
+/* Custom marquee animation - much slower and truly infinite */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-scroll {
+  animation: marquee-scroll 60s linear infinite;
+}
+
+.animate-marquee-scroll:hover {
+  animation-play-state: paused;
+}
